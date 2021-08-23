@@ -1,6 +1,5 @@
 package br.com.zupacademy.gabriel.casadocodigo.autor;
 
-import br.com.zupacademy.gabriel.casadocodigo.categoria.Categoria;
 import br.com.zupacademy.gabriel.casadocodigo.validacao.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Email;
