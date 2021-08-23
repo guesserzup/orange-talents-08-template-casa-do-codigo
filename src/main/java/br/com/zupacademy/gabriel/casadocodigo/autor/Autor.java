@@ -30,6 +30,7 @@ public class Autor {
 
     private LocalDateTime horarioCadastro = LocalDateTime.now();
 
+    @Deprecated
     public Autor(){}
 
     public Autor(String nome, String email, String descricao) {
