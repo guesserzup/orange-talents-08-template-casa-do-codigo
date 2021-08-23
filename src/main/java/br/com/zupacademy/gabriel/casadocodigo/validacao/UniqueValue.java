@@ -10,7 +10,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = {UniqueValueValidator.class})
 public @interface UniqueValue {
 
-    String message() default "{br.com.zupacademy.beanvalidation.uniquevalue}";
+    String message() default "Valor inserido já consta no sistema e não pode ter registro duplicado.";
     Class<?>[] groups() default { };
     Class<? extends Payload>[] payload() default { };
     String fieldName();
