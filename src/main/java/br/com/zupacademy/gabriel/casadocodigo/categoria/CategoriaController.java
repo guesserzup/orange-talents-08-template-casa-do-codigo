@@ -1,11 +1,10 @@
 package br.com.zupacademy.gabriel.casadocodigo.categoria;
 
+import br.com.zupacademy.gabriel.casadocodigo.validacao.ValidaCategoriaDuplicada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -16,6 +15,14 @@ public class CategoriaController {
 
     @Autowired
     CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private ValidaCategoriaDuplicada validaCategoriaDuplicada;
+
+    @InitBinder
+    public void init(WebDataBinder binder){
+        binder.addValidators(validaCategoriaDuplicada);
+    }
 
     @PostMapping
     @Transactional
