@@ -3,10 +3,10 @@ package br.com.zupacademy.gabriel.casadocodigo.validacao;
 public class ErroDeFormularioDto {
 
     private String campo;
-    private String valor;
+    private Object valor;
     private String erro;
 
-    public ErroDeFormularioDto(String campo, String valor, String erro) {
+    public ErroDeFormularioDto(String campo, Object valor, String erro) {
         this.campo = campo;
         this.valor = valor;
         this.erro = erro;
@@ -20,5 +20,5 @@ public class ErroDeFormularioDto {
         return erro;
     }
 
-    public String getValor() { return valor; }
+    public Object getValor() { return valor; }
 }
