@@ -6,9 +6,8 @@ public class ErroDeFormularioDto {
     private Object valor;
     private String erro;
 
-    public ErroDeFormularioDto(String campo, Object valor, String erro) {
+    public ErroDeFormularioDto(String campo, String erro) {
         this.campo = campo;
-        this.valor = valor;
         this.erro = erro;
     }
 

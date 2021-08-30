@@ -10,11 +10,12 @@ public class PaisForm {
     @UniqueValue(domainClass = Pais.class, fieldName = "nome")
     private String nome;
 
-    public Pais modelConverter() {
+    public Pais toEntity() {
         return new Pais(this.nome);
     }
 
     public String getNome() {
         return nome;
     }
+
 }

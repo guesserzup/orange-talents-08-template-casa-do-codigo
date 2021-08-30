@@ -25,9 +25,8 @@ public class ValidaEstadoDuplicado implements Validator {
 
         EstadoForm formEstado = (EstadoForm) target;
 
-        if (estadoRepository.findByNomeAndPaisId(formEstado.getNome(), formEstado.getIdPais()).isPresent()) {
-            errors.rejectValue("nome", "", "Estado já cadastrado.");
+        if (estadoRepository.findByNomeAndPaisId(formEstado.getNome(), formEstado.getPaisId()).isPresent()) {
+            throw new ExceptionRegra(new ErroDeFormularioDto("paisId", "Já existe esse estado cadastrado nesse país."));
         }
     }
-
 }

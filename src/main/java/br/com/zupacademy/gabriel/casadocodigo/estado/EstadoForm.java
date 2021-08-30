@@ -1,28 +1,31 @@
 package br.com.zupacademy.gabriel.casadocodigo.estado;
 
 import br.com.zupacademy.gabriel.casadocodigo.pais.Pais;
-
-import javax.persistence.EntityManager;
+import br.com.zupacademy.gabriel.casadocodigo.pais.PaisRepository;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 public class EstadoForm {
 
     @NotBlank
     private String nome;
 
-    @NotBlank
-    private Long idPais;
+    @NotNull
+    private Long paisId;
+
+    public Estado toEntity(PaisRepository repository) {
+        Optional<Pais> pais = repository.findById(paisId);
+        if (pais.isEmpty()) throw new IllegalArgumentException();
+        return new Estado(this.nome, pais.get());
+    }
 
     public String getNome() {
         return nome;
     }
 
-    public Long getIdPais() {
-        return idPais;
-    }
-
-    public Estado converterEmModelo(EntityManager manager) {
-        return new Estado(this.nome, manager.find(Pais.class, this.idPais));
+    public Long getPaisId() {
+        return paisId;
     }
 
 }

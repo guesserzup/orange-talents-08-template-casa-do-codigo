@@ -20,7 +20,7 @@ public class PaisController {
     @PostMapping
     @Transactional
     public ResponseEntity<?> cadastrar(@RequestBody @Valid PaisForm form) {
-        Pais pais = form.modelConverter();
+        Pais pais = form.toEntity();
         paisRepository.save(pais);
 
         return ResponseEntity.ok().build();
